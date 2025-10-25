@@ -8,6 +8,109 @@ ssimlComenzandoEn(12,seqProfesor2)
 subSecIncMasLargaV2(seqProfesor1)
 subSecIncMasLargaV2(seqProfesor2)
 
+
+/* ============================
+   Casos de prueba subindices
+   ============================ */
+
+// Valor esperado: Set(List())
+// Valor obtenido: Set(List())
+subindices(0, 0)
+
+// Valor esperado: Set(List(), List(0))
+// Valor obtenido: Set(List(), List(0))
+subindices(0, 1)
+
+// Valor esperado: Set(List(), List(1), List(2), List(1, 2))
+// Valor obtenido: Set(List(), List(1), List(2), List(1, 2))
+subindices(1, 3)
+
+// Valor esperado: Set(List())
+// Valor obtenido: Set(List())
+subindices(2, 2)
+
+// Valor esperado: Set(List(), List(0), List(1), List(2), List(0, 1), List(0, 2), List(1, 2), List(0, 1, 2))
+// Valor obtenido: Set(List(), List(0), List(1), List(2), List(0, 1), List(0, 2), List(1, 2), List(0, 1, 2))
+subindices(0, 3)
+
+
+
+/* ==========================================
+   Casos de prueba subSecuenciaAsoc(s, inds)
+   ========================================== */
+
+// Valor esperado: List()
+// Valor obtenido: List()
+subSecuenciaAsoc(Seq(5, 2, 9, 7), Seq())
+
+// Valor esperado: List(5)
+// Valor obtenido: List(5)
+subSecuenciaAsoc(Seq(5, 2, 9, 7), Seq(0))
+
+// Valor esperado: List(2, 7)
+// Valor obtenido: List(2, 7)
+subSecuenciaAsoc(Seq(5, 2, 9, 7), Seq(1, 3))
+
+// Valor esperado: List(5, 2, 9, 7)
+// Valor obtenido: List(5, 2, 9, 7)
+subSecuenciaAsoc(Seq(5, 2, 9, 7), Seq(0, 1, 2, 3))
+
+// Valor esperado: List(3, 4)
+// Valor obtenido: List(3, 4)
+subSecuenciaAsoc(Seq(3, 3, 4), Seq(0, 2))
+
+
+
+/* =================================
+   Casos de prueba subSecuenciasDe
+   ================================= */
+
+// Valor esperado: Set(List())
+// Valor obtenido: Set(List())
+subSecuenciasDe(Seq())
+
+// Valor esperado: Set(List(), List(5))
+// Valor obtenido: Set(List(), List(5))
+subSecuenciasDe(Seq(5))
+
+// Valor esperado: Set(List(), List(1), List(2), List(1, 2))
+// Valor obtenido: Set(List(), List(1), List(2), List(1, 2))
+subSecuenciasDe(Seq(1, 2))
+
+// Valor esperado: Set(List(), List(2), List(2, 2))
+// Valor obtenido: Set(List(), List(2), List(2, 2))
+subSecuenciasDe(Seq(2, 2))
+
+// Valor esperado: Set(List(), List(1), List(3), List(2), List(1, 3), List(1, 2), List(3, 2), List(1, 3, 2))
+// Valor obtenido: Set(List(), List(1), List(3), List(2), List(1, 3), List(1, 2), List(3, 2), List(1, 3, 2))
+subSecuenciasDe(Seq(1, 3, 2))
+
+
+
+/* ===========================
+   Casos de prueba incremental
+   =========================== */
+
+// Valor esperado: true
+// Valor obtenido: true
+incremental(Seq())
+
+// Valor esperado: true
+// Valor obtenido: true
+incremental(Seq(5))
+
+// Valor esperado: true
+// Valor obtenido: true
+incremental(Seq(1, 2, 3))
+
+// Valor esperado: true
+// Valor obtenido: true
+incremental(Seq(2, 2))
+
+// Valor esperado: false
+// Valor obtenido: false
+incremental(Seq(3, 1))
+
 /*
 Casos de prueba subSecuenciasInc
  */
